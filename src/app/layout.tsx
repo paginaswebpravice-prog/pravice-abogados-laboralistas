@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "blindaje empresarial",
     "asesoría preventiva laboral",
   ],
+  other: {
+    "google-site-verification": "Sjvr4v7EGRfdGd1hqq8XTBMdqvhfUlmZSvvsfo5lKmo",
+  },
   authors: [
     {
       name: "PRAVICE Abogados Laboralistas",
@@ -40,11 +43,11 @@ export const metadata: Metadata = {
     title: "PRAVICE Abogados Laboralistas | Asesoría y Blindaje Laboral",
     description:
       "Servicios legales especializados en derecho laboral: asesoría preventiva, outsourcing laboral, defensa en procesos y auditorías.",
-    url: "https://www.pravice.abogadoslaboralistas.com",
+    url: "https://pravice-abogadoslaboralistas.vercel.app/",
     siteName: "PRAVICE Abogados Laboralistas",
     images: [
       {
-        url: "https://www.pravice.abogadoslaboralistas.com",
+        url: "https://pravice-abogadoslaboralistas.vercel.app/",
         width: 1200,
         height: 630,
         alt: "PRAVICE Abogados Laboralistas",
@@ -57,7 +60,7 @@ export const metadata: Metadata = {
     title: "PRAVICE Abogados Laboralistas",
     description:
       "Servicios legales especializados en derecho laboral: asesoría preventiva, outsourcing laboral, defensa en procesos y auditorías.",
-    images: ["https://pravice.abogadoslaboralistas.com/og-image.jpg"],
+    images: ["https://pravice-abogadoslaboralistas.vercel.app/og-image.jpg"],
     creator: "@pravice_abogados",
   },
   robots: {
