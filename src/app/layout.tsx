@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "PRAVICE Abogados Laboralistas",
-      url: "https://www.pravice.abogadoslaboralistas.comq",
+      url: "https://www.pravice.abogadoslaboralistas.com",
     },
   ],
   creator: "PRAVICE Abogados Laboralistas",
-  themeColor: "#004a80",
+
   openGraph: {
     title: "PRAVICE Abogados Laboralistas | Asesoría y Blindaje Laboral",
     description:
@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "PRAVICE Abogados Laboralistas",
@@ -63,6 +64,7 @@ export const metadata: Metadata = {
     images: ["https://pravice-abogadoslaboralistas.vercel.app/og-image.jpg"],
     creator: "@pravice_abogados",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -71,6 +73,7 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -78,11 +81,16 @@ export const metadata: Metadata = {
   },
 };
 
+// 👇 AQUÍ VA AHORA (CLAVE)
+export const viewport: Viewport = {
+  themeColor: "#004a80",
+};
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

@@ -58,7 +58,7 @@ export default function NavBar() {
           {navItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={`/#${item.id}`}
               className={active === item.id ? styles.active : ""}
               onClick={() => setMenuOpen(false)}
             >
