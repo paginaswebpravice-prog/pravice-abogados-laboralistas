@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./Article.module.css";
+import styles from "../BlogContent.module.css";
 
 export default function DespidoJustaCausa() {
   return (
