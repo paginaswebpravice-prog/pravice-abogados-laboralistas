@@ -108,11 +108,15 @@ export default function BlogClient() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className={styles.title}>Blog de Derecho Laboral en Colombia</h1>
+          <span className={styles.badge}>Blog jurídico laboral</span>
+
+          <h1 className={styles.title}>
+            Derecho laboral en Colombia explicado fácil y sin enredos
+          </h1>
 
           <p className={styles.subtitle}>
-            Información clara y práctica sobre despidos, demandas laborales,
-            liquidaciones y derechos laborales en Colombia.
+            Guías prácticas sobre despidos, liquidaciones, demandas laborales y
+            derechos del trabajador en Colombia.
           </p>
 
           <Link href="/" className={styles.backLink}>
@@ -129,15 +133,19 @@ export default function BlogClient() {
               key={article.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.05 }}
               viewport={{ once: true }}
             >
               <Link href={`/blog/${article.slug}`} className={styles.card}>
-                <h2 className={styles.cardTitle}>{article.title}</h2>
+                <div className={styles.cardInner}>
+                  <h2 className={styles.cardTitle}>{article.title}</h2>
 
-                <p className={styles.cardDescription}>{article.description}</p>
+                  <p className={styles.cardDescription}>
+                    {article.description}
+                  </p>
 
-                <span className={styles.readMore}>Leer más →</span>
+                  <span className={styles.readMore}>Leer artículo →</span>
+                </div>
               </Link>
             </motion.div>
           ))}
@@ -151,7 +159,7 @@ export default function BlogClient() {
 
           <p>
             Nuestro equipo de abogados laboralistas en Bogotá está listo para
-            ayudarle en su caso.
+            analizar su caso y ayudarle.
           </p>
 
           <a
