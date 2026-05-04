@@ -32,6 +32,10 @@ const servicios = [
     href: "/servicios/negociaciones-colectivas",
   },
   { label: "No pago de salario", href: "/servicios/no-pago-salario-colombia" },
+  {
+    label: "Protección de datos laborales",
+    href: "/servicios/proteccion-datos-laborales",
+  },
   { label: "Seguridad social", href: "/servicios/seguridad-social" },
 ];
 

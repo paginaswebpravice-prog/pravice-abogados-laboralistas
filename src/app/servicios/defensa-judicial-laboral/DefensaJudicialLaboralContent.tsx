@@ -2,24 +2,33 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
-export default function DefensaJudicialLaboralContent() {
+export default function AcosoLaboralContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContainer}>
-          <span className={styles.badge}>Representación legal laboral</span>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className={styles.badge}>Defensa laboral en Colombia</span>
 
           <h1 className={styles.title}>
-            Defensa judicial laboral en Colombia: represente su caso con
-            abogados expertos
+            Acoso laboral en Colombia: denuncie y proteja sus derechos
           </h1>
 
           <p className={styles.subtitle}>
-            Lo representamos en demandas laborales, audiencias y procesos
-            judiciales. Defendemos sus derechos frente a empleadores, empresas y
-            decisiones injustas.
+            Si está siendo víctima de acoso laboral, hostigamiento o presión en
+            su trabajo, podemos ayudarle a actuar legalmente, reunir pruebas y
+            proteger su estabilidad laboral.
           </p>
 
           <div className={styles.heroActions}>
@@ -28,153 +37,203 @@ export default function DefensaJudicialLaboralContent() {
               target="_blank"
               className={styles.ctaPrimary}
             >
-              Consultar mi caso
+              Consultar por WhatsApp
             </a>
 
             <Link href="/blog" className={styles.ctaSecondary}>
               Ver guías legales
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
-          <h2>¿Necesita un abogado para un proceso laboral?</h2>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>¿Qué es el acoso laboral?</h2>
 
           <p>
-            Si está enfrentando una demanda laboral o necesita iniciar una,
-            contar con una defensa judicial adecuada es fundamental para
-            proteger sus derechos.
+            El acoso laboral en Colombia ocurre cuando un trabajador es sometido
+            a conductas repetitivas de hostigamiento, presión, intimidación o
+            maltrato que afectan su dignidad, salud mental o estabilidad
+            laboral.
           </p>
 
           <p>
-            Los procesos laborales en Colombia requieren conocimiento técnico,
-            estrategia jurídica y experiencia en audiencias y pruebas.
+            Estas situaciones no solo son ilegales, sino que pueden dar lugar a
+            sanciones contra la empresa y a indemnizaciones a favor del
+            trabajador.
           </p>
-        </section>
+        </motion.section>
 
-        {/* GRID PROBLEMAS */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
-            <h3>Casos comunes</h3>
+        {/* GRID */}
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h3>Ejemplos de acoso laboral</h3>
             <ul>
-              <li>Despido injustificado</li>
-              <li>No pago de salarios o prestaciones</li>
-              <li>Acoso laboral</li>
-              <li>Accidentes de trabajo</li>
-              <li>Reclamaciones contra empleadores</li>
+              <li>Humillaciones constantes</li>
+              <li>Asignación de tareas imposibles</li>
+              <li>Aislamiento del trabajador</li>
+              <li>Amenazas de despido</li>
+              <li>Presión psicológica continua</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
-            <h3>Riesgos sin defensa adecuada</h3>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h3>Consecuencias si no actúa</h3>
             <ul>
-              <li>Pérdida del proceso</li>
-              <li>Pruebas mal presentadas</li>
-              <li>Estrategia legal débil</li>
-              <li>Menor indemnización</li>
-              <li>Errores en audiencias</li>
+              <li>Afectación emocional y estrés</li>
+              <li>Pérdida de estabilidad laboral</li>
+              <li>Renuncia forzada</li>
+              <li>Dificultad para probar el caso después</li>
+              <li>Normalización del abuso</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCIÓN */}
-        <section className={styles.sectionAlt}>
-          <h2>Cómo lo representamos</h2>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>Cómo le ayudamos a denunciar correctamente</h2>
+
+          <p>
+            No basta con “denunciar”. Es necesario hacerlo estratégicamente, con
+            pruebas y dentro de los canales correctos.
+          </p>
 
           <ul className={styles.checklist}>
-            <li>Análisis completo de su caso</li>
-            <li>Definición de estrategia jurídica</li>
-            <li>Preparación de pruebas</li>
-            <li>Representación en audiencias</li>
-            <li>Seguimiento del proceso judicial</li>
+            <li>Evaluación jurídica de su caso</li>
+            <li>Identificación de conductas de acoso</li>
+            <li>Recolección de pruebas válidas</li>
+            <li>Asesoría para denuncia interna</li>
+            <li>Demanda laboral si aplica</li>
           </ul>
-
-          <p>
-            Nuestro objetivo es maximizar sus probabilidades de éxito y lograr
-            el mejor resultado posible.
-          </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
-          <h2>Etapas del proceso judicial laboral</h2>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2>Proceso para denunciar acoso laboral</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Evaluación del caso</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Presentación de demanda o defensa</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Audiencias y pruebas</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Sentencia y ejecución</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Análisis de su situación laboral",
+                      "Recolección de pruebas",
+                      "Denuncia ante la empresa",
+                      "Acción legal si es necesario",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
-          <h2>¿Por qué es importante una buena defensa laboral?</h2>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>¿Cómo probar el acoso laboral?</h2>
 
           <p>
-            En los procesos laborales, cada detalle cuenta. La forma en que se
-            presentan las pruebas, los argumentos jurídicos y la estrategia
-            utilizada pueden determinar el resultado del caso.
+            Uno de los errores más comunes es no documentar las situaciones de
+            acoso. Sin pruebas, el caso pierde fuerza.
           </p>
 
           <p>
-            Una defensa adecuada puede significar obtener una indemnización
-            completa o perder derechos importantes.
+            Algunos elementos clave incluyen correos electrónicos, mensajes,
+            testigos, grabaciones (en ciertos casos) y reportes internos.
           </p>
-        </section>
+
+          <p>
+            La forma en que se recopilan estas pruebas es determinante para el
+            éxito del caso.
+          </p>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
-          <h2>Defensa laboral estratégica en Colombia</h2>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2>Defensa laboral estratégica</h2>
 
           <p>
-            No solo representamos su caso, diseñamos una estrategia para ganar.
-            Analizamos cada detalle para fortalecer su posición frente a la
-            contraparte.
+            Cada caso de acoso laboral es diferente. Por eso, diseñamos una
+            estrategia personalizada que proteja sus derechos y maximice las
+            posibilidades de éxito.
           </p>
 
-          <p>Atendemos en Bogotá y en todo el país de forma virtual.</p>
-        </section>
+          <p>Atendemos casos en Bogotá y en todo Colombia de forma virtual.</p>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
-          <h2>Asesoría legal para su proceso laboral</h2>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>Actúe a tiempo</h2>
 
           <p>
-            Si está involucrado en un proceso laboral o está considerando
-            iniciar uno, es fundamental actuar con asesoría legal desde el
-            inicio.
+            El acoso laboral no debe normalizarse. Actuar a tiempo puede evitar
+            daños mayores y fortalecer su caso legal.
           </p>
-
-          <p>
-            Una buena estrategia desde el principio aumenta significativamente
-            las probabilidades de éxito.
-          </p>
-        </section>
+        </motion.section>
 
         {/* CTA FINAL */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
-              Defienda sus derechos con representación legal experta.
+              Proteja su trabajo y su dignidad. Reciba asesoría legal hoy.
             </strong>
           </p>
 
@@ -182,10 +241,11 @@ export default function DefensaJudicialLaboralContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
-            Solicitar asesoría ahora
+            Hablar con un abogado
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

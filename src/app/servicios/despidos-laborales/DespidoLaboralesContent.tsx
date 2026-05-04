@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function DespidosLaboralesContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.badge}>
             Abogados laboralistas en Colombia
           </span>
@@ -37,12 +43,18 @@ export default function DespidosLaboralesContent() {
               Ver guías legales
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Fue despedido sin justa causa en Colombia?</h2>
 
           <p>
@@ -56,11 +68,17 @@ export default function DespidosLaboralesContent() {
             indemnización económica adicional a su liquidación, la cual muchas
             veces no es pagada correctamente o es calculada de forma errónea.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROBLEMAS */}
         <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Situaciones frecuentes</h3>
             <ul>
               <li>No le pagan indemnización</li>
@@ -69,9 +87,15 @@ export default function DespidosLaboralesContent() {
               <li>Le hacen firmar documentos bajo presión</li>
               <li>Terminación verbal del contrato</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Riesgos si no actúa</h3>
             <ul>
               <li>Pérdida total o parcial de su dinero</li>
@@ -80,11 +104,17 @@ export default function DespidosLaboralesContent() {
               <li>Errores que debilitan su caso</li>
               <li>Aprovechamiento por parte de la empresa</li>
             </ul>
-          </div>
+          </motion.div>
         </section>
 
         {/* SOLUCION */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos a recuperar su indemnización</h2>
 
           <p>
@@ -105,37 +135,52 @@ export default function DespidosLaboralesContent() {
             No solo buscamos que le paguen, sino que le paguen correctamente y
             en el menor tiempo posible.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso legal paso a paso</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Análisis de documentos laborales</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Determinación del tipo de despido</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Cálculo de valores a reclamar</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Negociación o demanda judicial</p>
-            </div>
+            {[1, 2, 3, 4].map((num, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span>{num}</span>
+                <p>
+                  {
+                    [
+                      "Análisis de documentos laborales",
+                      "Determinación del tipo de despido",
+                      "Cálculo de valores a reclamar",
+                      "Negociación o demanda judicial",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* CONTENIDO SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Cuánto deben pagarle por despido injustificado?</h2>
 
           <p>
@@ -155,10 +200,16 @@ export default function DespidosLaboralesContent() {
             Por eso es clave realizar una revisión jurídica antes de aceptar
             cualquier pago.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+        >
           <h2>Defensa laboral estratégica en Colombia</h2>
 
           <p>
@@ -172,10 +223,16 @@ export default function DespidosLaboralesContent() {
             permitiendo que cualquier trabajador acceda a defensa legal sin
             importar su ubicación.
           </p>
-        </section>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Asesoría laboral inmediata</h2>
 
           <p>
@@ -187,10 +244,16 @@ export default function DespidosLaboralesContent() {
             Actuar a tiempo es clave para evitar la pérdida de sus derechos
             laborales.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA FINAL */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Consulte su caso hoy mismo y recupere lo que legalmente le
@@ -202,10 +265,11 @@ export default function DespidosLaboralesContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
             Solicitar asesoría por WhatsApp
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

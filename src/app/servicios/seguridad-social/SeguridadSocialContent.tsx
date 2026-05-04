@@ -2,13 +2,24 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function SeguridadSocialContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+        >
           <span className={styles.badge}>Abogados laborales en Colombia</span>
 
           <h1 className={styles.title}>
@@ -34,12 +45,18 @@ export default function SeguridadSocialContent() {
               Ver guía legal
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué es la seguridad social en Colombia?</h2>
 
           <p>
@@ -57,11 +74,22 @@ export default function SeguridadSocialContent() {
             Cuando una empresa no realiza estos pagos, está incumpliendo la ley
             y afectando directamente sus derechos.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROBLEMAS */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ x: -40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <h3>Situaciones frecuentes</h3>
             <ul>
               <li>No lo afiliaron a seguridad social</li>
@@ -70,9 +98,14 @@ export default function SeguridadSocialContent() {
               <li>Aportes incompletos</li>
               <li>Falta de afiliación a ARL</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ x: 40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <h3>Riesgos graves</h3>
             <ul>
               <li>No acceso a servicios de salud</li>
@@ -81,11 +114,17 @@ export default function SeguridadSocialContent() {
               <li>Problemas legales futuros</li>
               <li>Pérdidas económicas importantes</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCION */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos</h2>
 
           <ul className={styles.checklist}>
@@ -100,37 +139,51 @@ export default function SeguridadSocialContent() {
             Nuestro objetivo es garantizar que su historial laboral quede
             correctamente registrado.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso legal</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Análisis del caso</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Validación de aportes</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Reclamación</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Acción judicial</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: i * 0.15 }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Análisis del caso",
+                      "Validación de aportes",
+                      "Reclamación",
+                      "Acción judicial",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Cómo saber si su empresa está cotizando?</h2>
 
           <p>
@@ -142,20 +195,32 @@ export default function SeguridadSocialContent() {
             Si detecta inconsistencias, es importante actuar rápidamente para
             evitar la pérdida de derechos.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ scale: 0.95, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Asesoría en todo Colombia</h2>
 
           <p>
             Atendemos casos en Bogotá y de manera virtual en todo el país,
             permitiendo acceso a defensa legal sin importar su ubicación.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>Proteja su futuro y recupere sus aportes hoy mismo.</strong>
           </p>
@@ -164,10 +229,11 @@ export default function SeguridadSocialContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
             Solicitar asesoría
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

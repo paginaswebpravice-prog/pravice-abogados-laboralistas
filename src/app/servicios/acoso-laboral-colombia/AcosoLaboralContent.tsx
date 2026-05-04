@@ -2,13 +2,23 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function AcosoLaboralContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.badge}>Defensa laboral en Colombia</span>
 
           <h1 className={styles.title}>
@@ -34,12 +44,17 @@ export default function AcosoLaboralContent() {
               Ver guías legales
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué es el acoso laboral?</h2>
 
           <p>
@@ -54,11 +69,20 @@ export default function AcosoLaboralContent() {
             sanciones contra la empresa y a indemnizaciones a favor del
             trabajador.
           </p>
-        </section>
+        </motion.section>
 
         {/* GRID */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
             <h3>Ejemplos de acoso laboral</h3>
             <ul>
               <li>Humillaciones constantes</li>
@@ -67,9 +91,13 @@ export default function AcosoLaboralContent() {
               <li>Amenazas de despido</li>
               <li>Presión psicológica continua</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
             <h3>Consecuencias si no actúa</h3>
             <ul>
               <li>Afectación emocional y estrés</li>
@@ -78,11 +106,16 @@ export default function AcosoLaboralContent() {
               <li>Dificultad para probar el caso después</li>
               <li>Normalización del abuso</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCIÓN */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos a denunciar correctamente</h2>
 
           <p>
@@ -97,37 +130,49 @@ export default function AcosoLaboralContent() {
             <li>Asesoría para denuncia interna</li>
             <li>Demanda laboral si aplica</li>
           </ul>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso para denunciar acoso laboral</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Análisis de su situación laboral</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Recolección de pruebas</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Denuncia ante la empresa</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Acción legal si es necesario</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Análisis de su situación laboral",
+                      "Recolección de pruebas",
+                      "Denuncia ante la empresa",
+                      "Acción legal si es necesario",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Cómo probar el acoso laboral?</h2>
 
           <p>
@@ -144,10 +189,15 @@ export default function AcosoLaboralContent() {
             La forma en que se recopilan estas pruebas es determinante para el
             éxito del caso.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
           <h2>Defensa laboral estratégica</h2>
 
           <p>
@@ -157,20 +207,30 @@ export default function AcosoLaboralContent() {
           </p>
 
           <p>Atendemos casos en Bogotá y en todo Colombia de forma virtual.</p>
-        </section>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>Actúe a tiempo</h2>
 
           <p>
             El acoso laboral no debe normalizarse. Actuar a tiempo puede evitar
             daños mayores y fortalecer su caso legal.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA FINAL */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Proteja su trabajo y su dignidad. Reciba asesoría legal hoy.
@@ -181,10 +241,11 @@ export default function AcosoLaboralContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
             Hablar con un abogado
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

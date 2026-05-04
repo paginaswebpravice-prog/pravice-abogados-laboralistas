@@ -2,28 +2,54 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function LiquidacionLaboralContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className={styles.heroContainer}>
-          <span className={styles.badge}>
+          <motion.span
+            className={styles.badge}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
             Abogados laboralistas en Colombia
-          </span>
+          </motion.span>
 
-          <h1 className={styles.title}>
+          <motion.h1
+            className={styles.title}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             Liquidación laboral en Colombia: calcule y reclame lo que le deben
-          </h1>
+          </motion.h1>
 
-          <p className={styles.subtitle}>
+          <motion.p
+            className={styles.subtitle}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Revisamos su liquidación laboral para detectar errores y ayudarle a
             recuperar cesantías, primas, vacaciones e indemnización que no le
             hayan pagado correctamente.
-          </p>
+          </motion.p>
 
-          <div className={styles.heroActions}>
+          <motion.div
+            className={styles.heroActions}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
             <a
               href="https://api.whatsapp.com/send/?phone=573114659315"
               target="_blank"
@@ -35,13 +61,19 @@ export default function LiquidacionLaboralContent() {
             <Link href="/blog" className={styles.ctaSecondary}>
               Ver guía completa
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué es la liquidación laboral?</h2>
 
           <p>
@@ -55,11 +87,23 @@ export default function LiquidacionLaboralContent() {
             valores importantes, generando pérdidas económicas para el
             trabajador.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROBLEMAS */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Errores comunes</h3>
             <ul>
               <li>No incluyen cesantías</li>
@@ -68,9 +112,15 @@ export default function LiquidacionLaboralContent() {
               <li>No reconocen horas extras</li>
               <li>Indemnización omitida</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Consecuencias</h3>
             <ul>
               <li>Pérdida de dinero</li>
@@ -79,11 +129,17 @@ export default function LiquidacionLaboralContent() {
               <li>Errores que afectan su historial laboral</li>
               <li>Desconocimiento de sus derechos</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCION */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos</h2>
 
           <ul className={styles.checklist}>
@@ -98,37 +154,52 @@ export default function LiquidacionLaboralContent() {
             Nuestro objetivo es que reciba el 100% de lo que le corresponde por
             ley.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso de revisión</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Análisis de documentos</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Cálculo legal</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Reclamación</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Acción judicial</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Análisis de documentos",
+                      "Cálculo legal",
+                      "Reclamación",
+                      "Acción judicial",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué incluye la liquidación laboral?</h2>
 
           <p>
@@ -140,20 +211,32 @@ export default function LiquidacionLaboralContent() {
             Cada componente debe calcularse con base en su salario y tiempo
             trabajado.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Asesoría en todo Colombia</h2>
 
           <p>
             Atendemos casos en Bogotá y de manera virtual en todo el país,
             facilitando el acceso a asesoría legal especializada.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Revise su liquidación hoy mismo y recupere su dinero.
@@ -164,10 +247,11 @@ export default function LiquidacionLaboralContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
             Solicitar revisión
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

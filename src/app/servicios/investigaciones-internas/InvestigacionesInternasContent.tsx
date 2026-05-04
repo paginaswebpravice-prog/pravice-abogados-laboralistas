@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function InvestigacionesInternasContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.badge}>
             Cumplimiento y gestión laboral empresarial
           </span>
@@ -37,12 +43,18 @@ export default function InvestigacionesInternasContent() {
               Ver contenido legal
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué son las investigaciones internas laborales?</h2>
 
           <p>
@@ -55,11 +67,17 @@ export default function InvestigacionesInternasContent() {
             Estas investigaciones deben realizarse bajo parámetros legales para
             evitar sanciones, demandas o nulidad de decisiones.
           </p>
-        </section>
+        </motion.section>
 
         {/* GRID */}
         <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Casos que investigamos</h3>
             <ul>
               <li>Acoso laboral</li>
@@ -68,9 +86,15 @@ export default function InvestigacionesInternasContent() {
               <li>Conductas disciplinarias</li>
               <li>Conflictos entre empleados</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Riesgos sin investigación adecuada</h3>
             <ul>
               <li>Demandas laborales</li>
@@ -79,11 +103,17 @@ export default function InvestigacionesInternasContent() {
               <li>Pérdida de pruebas</li>
               <li>Daño reputacional empresarial</li>
             </ul>
-          </div>
+          </motion.div>
         </section>
 
         {/* SOLUCIÓN */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo realizamos la investigación</h2>
 
           <ul className={styles.checklist}>
@@ -98,37 +128,52 @@ export default function InvestigacionesInternasContent() {
             Garantizamos un proceso objetivo, confidencial y alineado con la ley
             laboral colombiana.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Etapas de la investigación interna</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Recepción del caso</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Recolección de pruebas</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Análisis jurídico</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Informe y decisiones</p>
-            </div>
+            {[1, 2, 3, 4].map((num, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span>{num}</span>
+                <p>
+                  {
+                    [
+                      "Recepción del caso",
+                      "Recolección de pruebas",
+                      "Análisis jurídico",
+                      "Informe y decisiones",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Importancia legal de una investigación interna bien hecha</h2>
 
           <p>
@@ -141,10 +186,16 @@ export default function InvestigacionesInternasContent() {
             Por eso, es fundamental que estos procesos sean dirigidos por
             abogados con experiencia en derecho laboral.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+        >
           <h2>Enfoque legal y estratégico</h2>
 
           <p>
@@ -154,10 +205,16 @@ export default function InvestigacionesInternasContent() {
           </p>
 
           <p>Atendemos empresas en Bogotá y todo Colombia de forma remota.</p>
-        </section>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Asesoría para empresas en Colombia</h2>
 
           <p>
@@ -168,10 +225,16 @@ export default function InvestigacionesInternasContent() {
           <p>
             Una investigación adecuada puede evitar problemas legales futuros.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Proteja su empresa con investigaciones internas legales y seguras.
@@ -185,7 +248,7 @@ export default function InvestigacionesInternasContent() {
           >
             Solicitar asesoría empresarial
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

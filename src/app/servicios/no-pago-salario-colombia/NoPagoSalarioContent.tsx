@@ -2,13 +2,24 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function NoPagoSalarioContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
+        >
           <span className={styles.badge}>
             Defensa laboral inmediata en Colombia
           </span>
@@ -36,12 +47,18 @@ export default function NoPagoSalarioContent() {
               Ver guía legal
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué pasa si la empresa no paga el salario?</h2>
 
           <p>
@@ -60,11 +77,22 @@ export default function NoPagoSalarioContent() {
             En estos casos, usted puede exigir el pago inmediato y, en algunos
             casos, incluso recibir indemnización adicional.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROBLEMAS */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ x: -40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <h3>Situaciones más comunes</h3>
             <ul>
               <li>Salarios atrasados por semanas o meses</li>
@@ -73,9 +101,14 @@ export default function NoPagoSalarioContent() {
               <li>Empresa con excusas constantes</li>
               <li>Retención injustificada del sueldo</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ x: 40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <h3>Consecuencias si no actúa</h3>
             <ul>
               <li>Pérdida de dinero difícil de recuperar</li>
@@ -84,11 +117,17 @@ export default function NoPagoSalarioContent() {
               <li>Mayor abuso por parte del empleador</li>
               <li>Impacto económico personal grave</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCION */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos a recuperar su salario</h2>
 
           <p>
@@ -109,37 +148,51 @@ export default function NoPagoSalarioContent() {
             Nuestro objetivo es que usted reciba cada peso que le corresponde
             por ley.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso para reclamar su salario</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Revisión de su caso</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Cálculo de valores adeudados</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Reclamación directa</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Demanda laboral</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: i * 0.15 }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Revisión de su caso",
+                      "Cálculo de valores adeudados",
+                      "Reclamación directa",
+                      "Demanda laboral",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Puede renunciar si no le pagan?</h2>
 
           <p>
@@ -157,10 +210,16 @@ export default function NoPagoSalarioContent() {
             Cada situación es diferente, por eso es clave analizar su caso antes
             de tomar decisiones.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ scale: 0.95, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Defensa laboral en todo Colombia</h2>
 
           <p>
@@ -173,20 +232,32 @@ export default function NoPagoSalarioContent() {
             Actuar rápido puede marcar la diferencia entre recuperar su dinero o
             perderlo.
           </p>
-        </section>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2>Reciba asesoría inmediata</h2>
 
           <p>
             Si su empresa no le paga, no espere más. Podemos analizar su caso y
             ayudarle a tomar la mejor decisión legal.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Reclame su salario hoy mismo y proteja sus derechos laborales.
@@ -197,10 +268,11 @@ export default function NoPagoSalarioContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noreferrer noopener"
           >
             Solicitar asesoría ahora
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

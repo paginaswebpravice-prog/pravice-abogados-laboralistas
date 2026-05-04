@@ -2,13 +2,23 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function AccidentesLaboralesContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+      <motion.section
+        className={styles.hero}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.badge}>Accidentes laborales en Colombia</span>
 
           <h1 className={styles.title}>
@@ -34,12 +44,17 @@ export default function AccidentesLaboralesContent() {
               Ver guías legales
             </Link>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué es un accidente laboral en Colombia?</h2>
 
           <p>
@@ -52,11 +67,20 @@ export default function AccidentesLaboralesContent() {
             Esto incluye accidentes dentro del lugar de trabajo, durante
             desplazamientos laborales o ejecutando funciones asignadas.
           </p>
-        </section>
+        </motion.section>
 
         {/* GRID PROBLEMAS */}
-        <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+        <motion.section
+          className={styles.sectionGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
             <h3>Problemas frecuentes</h3>
             <ul>
               <li>La empresa no reporta el accidente</li>
@@ -65,9 +89,13 @@ export default function AccidentesLaboralesContent() {
               <li>Clasifican mal el origen del accidente</li>
               <li>Despido posterior al accidente</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
             <h3>Consecuencias de no reclamar</h3>
             <ul>
               <li>Pérdida de indemnización</li>
@@ -76,11 +104,16 @@ export default function AccidentesLaboralesContent() {
               <li>Reducción de ingresos</li>
               <li>Desprotección legal total</li>
             </ul>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* SOLUCIÓN */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos</h2>
 
           <ul className={styles.checklist}>
@@ -95,37 +128,49 @@ export default function AccidentesLaboralesContent() {
             Nuestro enfoque es maximizar su compensación económica y garantizar
             que reciba todos los beneficios legales.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso de reclamación</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Evaluación del accidente</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Determinación de responsabilidad</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Reclamación ante ARL</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Acción legal si es necesario</p>
-            </div>
+            {[1, 2, 3, 4].map((step, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <span>{step}</span>
+                <p>
+                  {
+                    [
+                      "Evaluación del accidente",
+                      "Determinación de responsabilidad",
+                      "Reclamación ante ARL",
+                      "Acción legal si es necesario",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué puede reclamar por un accidente laboral?</h2>
 
           <p>
@@ -138,10 +183,15 @@ export default function AccidentesLaboralesContent() {
             Muchas veces las ARL limitan los pagos o rechazan reclamaciones, por
             lo que es clave contar con asesoría legal especializada.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
           <h2>Defensa frente a ARL y empleadores</h2>
 
           <p>
@@ -150,10 +200,15 @@ export default function AccidentesLaboralesContent() {
           </p>
 
           <p>Atendemos en Bogotá y todo Colombia de forma virtual.</p>
-        </section>
+        </motion.section>
 
         {/* CTA FINAL */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Reciba asesoría legal y proteja sus derechos tras un accidente
@@ -168,7 +223,7 @@ export default function AccidentesLaboralesContent() {
           >
             Consultar ahora
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );

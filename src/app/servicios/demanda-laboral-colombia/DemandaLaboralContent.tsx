@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import styles from "../Servicios.module.css";
+import { motion } from "framer-motion";
 
 export default function DemandaLaboralContent() {
   return (
     <main className={styles.wrapper}>
       {/* HERO */}
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <motion.div
+          className={styles.heroContainer}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className={styles.badge}>
             Abogados laboralistas en Colombia
           </span>
@@ -36,12 +42,18 @@ export default function DemandaLaboralContent() {
               Ver artículos legales
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <article className={styles.article}>
         {/* INTRO */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Qué es una demanda laboral?</h2>
 
           <p>
@@ -54,11 +66,17 @@ export default function DemandaLaboralContent() {
             Este proceso permite exigir pagos pendientes, indemnizaciones o
             incluso el reconocimiento de una relación laboral.
           </p>
-        </section>
+        </motion.section>
 
         {/* GRID */}
         <section className={styles.sectionGrid}>
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Casos más comunes</h3>
             <ul>
               <li>No pago de salario</li>
@@ -67,9 +85,15 @@ export default function DemandaLaboralContent() {
               <li>Contrato realidad</li>
               <li>Acoso laboral</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.cardInfo}>
+          <motion.div
+            className={styles.cardInfo}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             <h3>Riesgos de no demandar</h3>
             <ul>
               <li>Pérdida de dinero</li>
@@ -78,11 +102,17 @@ export default function DemandaLaboralContent() {
               <li>Ventaja para la empresa</li>
               <li>Renuncia a indemnización</li>
             </ul>
-          </div>
+          </motion.div>
         </section>
 
         {/* SOLUCIÓN */}
-        <section className={styles.sectionAlt}>
+        <motion.section
+          className={styles.sectionAlt}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Cómo le ayudamos en su demanda laboral</h2>
 
           <p>
@@ -97,37 +127,52 @@ export default function DemandaLaboralContent() {
             <li>Representación ante el juez</li>
             <li>Seguimiento del proceso</li>
           </ul>
-        </section>
+        </motion.section>
 
         {/* PROCESO */}
-        <section className={styles.process}>
+        <motion.section
+          className={styles.process}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Proceso de una demanda laboral</h2>
 
           <div className={styles.processGrid}>
-            <div className={styles.processItem}>
-              <span>1</span>
-              <p>Evaluación del caso</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>2</span>
-              <p>Presentación de la demanda</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>3</span>
-              <p>Audiencias judiciales</p>
-            </div>
-
-            <div className={styles.processItem}>
-              <span>4</span>
-              <p>Sentencia del juez</p>
-            </div>
+            {[1, 2, 3, 4].map((num, i) => (
+              <motion.div
+                key={i}
+                className={styles.processItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span>{num}</span>
+                <p>
+                  {
+                    [
+                      "Evaluación del caso",
+                      "Presentación de la demanda",
+                      "Audiencias judiciales",
+                      "Sentencia del juez",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* SEO FUERTE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>¿Cuánto tarda una demanda laboral en Colombia?</h2>
 
           <p>
@@ -140,10 +185,16 @@ export default function DemandaLaboralContent() {
             Sin embargo, una buena estrategia puede acelerar etapas clave del
             proceso.
           </p>
-        </section>
+        </motion.section>
 
         {/* DIFERENCIAL */}
-        <section className={styles.sectionHighlight}>
+        <motion.section
+          className={styles.sectionHighlight}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+        >
           <h2>Estrategia legal enfocada en resultados</h2>
 
           <p>
@@ -152,20 +203,32 @@ export default function DemandaLaboralContent() {
           </p>
 
           <p>Atendemos casos en Bogotá y en todo Colombia de forma virtual.</p>
-        </section>
+        </motion.section>
 
         {/* CIERRE */}
-        <section className={styles.section}>
+        <motion.section
+          className={styles.section}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <h2>Consulte su caso</h2>
 
           <p>
             Antes de iniciar una demanda laboral, es clave evaluar la viabilidad
             del caso para evitar errores.
           </p>
-        </section>
+        </motion.section>
 
         {/* CTA */}
-        <footer className={styles.footer}>
+        <motion.footer
+          className={styles.footer}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <p>
             <strong>
               Inicie su demanda laboral con respaldo jurídico profesional.
@@ -176,10 +239,11 @@ export default function DemandaLaboralContent() {
             href="https://api.whatsapp.com/send/?phone=573114659315"
             target="_blank"
             className={styles.ctaButton}
+            rel="noopener noreferrer"
           >
             Solicitar asesoría
           </a>
-        </footer>
+        </motion.footer>
       </article>
     </main>
   );
