@@ -1,163 +1,138 @@
 /* ================= SECTION ================= */
 .section {
-  background: #ffffff;
-  padding: 110px 20px;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%);
+  position: relative;
+  overflow: hidden;
 }
+
+/* figura geométrica decorativa */
+.section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #f7c60033, transparent 70%);
+  top: -100px;
+  right: -100px;
+  z-index: 0;
+}
+
 .container {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-} /* ================= TITLES ================= */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= TITLES ================= */
 .title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   color: #004a80;
   margin-bottom: 10px;
-  position: relative;
 }
-.title::after {
-  content: "";
-  width: 60px;
-  height: 4px;
-  background: #f4c300;
-  display: block;
-  margin-top: 12px;
-  border-radius: 3px;
-}
+
 .subtitle {
-  font-size: 15px;
-  color: #808080;
-  margin-bottom: 70px;
-} /* ================= WRAPPER ================= */
-.wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} /* ================= CIRCLE ================= */
-.circle {
-  position: relative;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: conic-gradient(
-    #004a80 0deg 72deg,
-    #5eb3e4 72deg 144deg,
-    #004a80 144deg 216deg,
-    #5eb3e4 216deg 288deg,
-    #004a80 288deg 360deg
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 25px 50px rgba(0, 74, 128, 0.15);
-  transition: 0.4s ease;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 50px;
+  opacity: 0.7;
 }
-.circle:hover {
-  transform: scale(1.02);
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
 }
-.innerCircle {
-  width: 150px;
-  height: 150px;
+
+/* ================= CARD ================= */
+.card {
   background: #ffffff;
-  border-radius: 50%;
+  border-radius: 18px;
+  padding: 22px 14px;
+  text-align: center;
+  transition: 0.3s ease;
+  border: 1px solid rgba(0, 74, 128, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.card::after {
+  content: "";
   position: absolute;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
-} /* ================= ICONS ================= */
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(247, 198, 0, 0.08),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #f7c600;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= ICON ================= */
 .icon {
-  position: absolute;
   font-size: 20px;
   color: #ffffff;
-  transition: 0.3s ease;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #004a80, #000);
+  box-shadow: 0 6px 15px rgba(0, 74, 128, 0.2);
+
+  transition: 0.3s;
 }
-.circle:hover .icon {
-  color: #f4c300;
-} /* Posiciones radiales */
-.icon1 {
-  top: 65px;
-  left: 155px;
+
+.card:hover .icon {
+  background: linear-gradient(135deg, #f7c600, #c4911a);
+  color: #000;
 }
-.icon2 {
-  top: 120px;
-  right: 65px;
-}
-.icon3 {
-  bottom: 120px;
-  right: 75px;
-}
-.icon4 {
-  bottom: 75px;
-  left: 165px;
-}
-.icon5 {
-  top: 160px;
-  left: 65px;
-} /* ================= TEXT POSITIONS ================= */
-.leftTop,
-.rightTop,
-.rightMiddle,
-.rightBottom,
-.leftBottom {
-  position: absolute;
-  font-weight: 600;
+
+/* ================= TEXT ================= */
+.card h3 {
   font-size: 15px;
   color: #004a80;
-  transition: 0.3s ease;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
-.leftTop {
-  left: -230px;
-  top: 70px;
+
+.card p {
+  font-size: 13px;
+  color: #000;
+  opacity: 0.65;
 }
-.rightTop {
-  right: -270px;
-  top: 60px;
-}
-.rightMiddle {
-  right: -270px;
-  top: 175px;
-}
-.rightBottom {
-  right: -250px;
-  bottom: 70px;
-}
-.leftBottom {
-  left: -230px;
-  bottom: 90px;
-}
-.wrapper:hover .leftTop,
-.wrapper:hover .rightTop,
-.wrapper:hover .rightMiddle,
-.wrapper:hover .rightBottom,
-.wrapper:hover .leftBottom {
-  color: #c4911a;
-} /* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-  .wrapper {
-    flex-direction: column;
-  }
-  .leftTop,
-  .rightTop,
-  .rightMiddle,
-  .rightBottom,
-  .leftBottom {
-    position: static;
-    margin: 12px 0;
-    text-align: center;
-  }
-  .circle {
-    margin: 50px 0;
-    width: 320px;
-    height: 320px;
-  }
-  .innerCircle {
-    width: 120px;
-    height: 120px;
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 768px) {
-  .title {
-    font-size: 24px;
-  }
-  .subtitle {
-    font-size: 14px;
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
