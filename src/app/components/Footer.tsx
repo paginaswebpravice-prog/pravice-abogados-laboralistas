@@ -142,17 +142,21 @@ export default function Footer() {
       </footer>
 
       {/* BOTÓN WHATSAPP FLOTANTE */}
-      <a
-        href="https://wa.me/573114659315?text=Hola%20PRAVICE,%20quiero%20información%20sobre%20asesoría%20laboral."
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.whatsappFloat}
-        aria-label="Contactar por WhatsApp"
-        role="button"
-        tabIndex={0}
-      >
-        <FontAwesomeIcon icon={faWhatsapp} aria-hidden="true" />
-      </a>
+      <div className={styles.whatsappWrapper}>
+        <div className={styles.whatsappTooltip}>
+          💬 ¿Necesita asesoría? Escríbanos por WhatsApp
+        </div>
+
+        <a
+          href="https://wa.me/573114659315?text=Hola%20PRAVICE,%20quiero%20información%20sobre%20asesoría%20laboral."
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.whatsappFloat}
+          aria-label="Contactar por WhatsApp"
+        >
+          <FontAwesomeIcon icon={faWhatsapp} />
+        </a>
+      </div>
     </>
   );
 }

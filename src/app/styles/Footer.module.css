@@ -174,6 +174,81 @@
     0 0 25px rgba(37, 211, 102, 0.7);
 }
 
+/* ================= WRAPPER ================= */
+
+.whatsappWrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+}
+
+/* ================= TOOLTIP ================= */
+
+.whatsappTooltip {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+
+  background: #ffffff;
+  color: #000;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+
+  animation: tooltipLoop 6s infinite;
+}
+
+/* flechita */
+.whatsappTooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 18px;
+
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+/* ================= ANIMACIÓN LOOP ================= */
+
+@keyframes tooltipLoop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  55% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
