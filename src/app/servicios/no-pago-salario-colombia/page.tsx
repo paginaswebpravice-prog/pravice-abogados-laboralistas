@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og-image.jpg", // puedes personalizar esto luego
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "No pago de salario en Colombia",

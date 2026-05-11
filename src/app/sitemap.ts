@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // SERVICIOS
     "/servicios/demanda-laboral",
     "/servicios/despidos-laborales",
-    "/servicios/no-pago-salario",
+    "/servicios/no-pago-salario-colombia",
     "/servicios/seguridad-social",
     "/servicios/liquidacion-laboral",
     "/servicios/accidentes-laborales",
